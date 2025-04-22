@@ -1,6 +1,13 @@
-<p>{{todoItems()[0].title}}</p>
+<h3>Todo List</h3>
 
+@if (!todoItems().length) {
 
-@for (todo of todoItems(); track todo.id) {
-    <p>{{todo.title}}</p>
+<p>Loading..</p>
 }
+
+
+<ul class="todos">
+    @for (todo of todoItems(); track todo.id) {
+    <app-todos-item [todo]="todo" />
+    }
+</ul>
